@@ -16,25 +16,29 @@ type QuizState = "start" | "quiz" | "result";
 
 const Index = () => {
   const [quizState, setQuizState] = useState<QuizState>("start");
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState<boolean[]>(new Array(questions.length).fill(false));
   const [score, setScore] = useState(100);
 
   const handleStart = () => {
     setQuizState("quiz");
-    setCurrentQuestion(0);
+    setSelectedAnswers(new Array(questions.length).fill(false));
     setScore(100);
   };
 
-  const handleAnswer = (answer: boolean) => {
-    if (answer) {
-      setScore((prev) => prev - 1);
-    }
-    
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1);
-    } else {
-      setQuizState("result");
-    }
+  const handleCalculateScore = () => {
+    const newScore = 100 - selectedAnswers.filter(Boolean).length;
+    setScore(newScore);
+    setQuizState("result");
+  };
+
+  const handleClearCheckboxes = () => {
+    setSelectedAnswers(new Array(questions.length).fill(false));
+  };
+
+  const handleCheckboxChange = (index: number) => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[index] = !newAnswers[index];
+    setSelectedAnswers(newAnswers);
   };
 
   return (
@@ -65,11 +69,11 @@ const Index = () => {
 
           {quizState === "quiz" && (
             <QuizCard
-              key="quiz"
-              question={questions[currentQuestion]}
-              questionNumber={currentQuestion + 1}
-              totalQuestions={questions.length}
-              onAnswer={handleAnswer}
+              questions={questions}
+              selectedAnswers={selectedAnswers}
+              onCheckboxChange={handleCheckboxChange}
+              onCalculateScore={handleCalculateScore}
+              onClearCheckboxes={handleClearCheckboxes}
             />
           )}
 
