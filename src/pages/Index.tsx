@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { QuizCard } from "@/components/QuizCard";
-import { ResultCard } from "@/components/ResultCard";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 // Questions grouped by category
 const questions = [
@@ -146,25 +144,8 @@ const questions = [
 type QuizState = "start" | "quiz" | "result";
 
 const Index = () => {
-  const [quizState, setQuizState] = useState<QuizState>("start");
+  const navigate = useNavigate();
   const [selectedAnswers, setSelectedAnswers] = useState<boolean[]>(new Array(questions.length).fill(false));
-  const [score, setScore] = useState(100);
-
-  const handleStart = () => {
-    setQuizState("quiz");
-    setSelectedAnswers(new Array(questions.length).fill(false));
-    setScore(100);
-  };
-
-  const handleCalculateScore = () => {
-    const newScore = 100 - selectedAnswers.filter(Boolean).length;
-    setScore(newScore);
-    setQuizState("result");
-  };
-
-  const handleClearCheckboxes = () => {
-    setSelectedAnswers(new Array(questions.length).fill(false));
-  };
 
   const handleCheckboxChange = (index: number) => {
     const newAnswers = [...selectedAnswers];
@@ -172,60 +153,69 @@ const Index = () => {
     setSelectedAnswers(newAnswers);
   };
 
+  const handleCalculateScore = () => {
+    const score = 100 - selectedAnswers.filter(Boolean).length;
+    navigate(`/result?score=${score}`);
+  };
+
   return (
     <div className="min-h-screen bg-white p-6">
       <div className="max-w-4xl mx-auto pt-12">
-        <AnimatePresence mode="wait">
-          {quizState === "start" && (
-            <motion.div
-              key="start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="text-center"
-            >
-              <img 
-                src="/lovable-uploads/388e7686-2d70-447b-89c8-f6e176363f6b.png" 
-                alt="Asian Baby Purity Test Header" 
-                className="mx-auto mb-8 max-w-2xl w-full"
-              />
-              <div className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto space-y-4">
-                <p>
-                  The ABG-themed Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
-                  Inspired by the classic Rice Purity Test, this version adds an ABG twist, making it perfect for 
-                  group laughs and icebreakers.
-                </p>
-                <p>
-                  Reminder: This is just for fun! Checking off every item isn't a goal—take it easy and enjoy the ride.
-                </p>
-                <p>
-                  Click on each item you've experienced.
-                </p>
+        <div className="text-center mb-8">
+          <img 
+            src="/lovable-uploads/388e7686-2d70-447b-89c8-f6e176363f6b.png" 
+            alt="Asian Baby Purity Test Header" 
+            className="mx-auto mb-8 max-w-2xl w-full"
+          />
+          <div className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto space-y-4">
+            <p>
+              The ABG-themed Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
+              Inspired by the classic Rice Purity Test, this version adds an ABG twist, making it perfect for 
+              group laughs and icebreakers.
+            </p>
+            <p>
+              Click on each item you've experienced.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="grid grid-cols-1 gap-2">
+            {questions.map((question, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id={`question-${index}`}
+                  checked={selectedAnswers[index]}
+                  onChange={() => handleCheckboxChange(index)}
+                  className="w-4 h-4 rounded border-gray-300 text-rose-400 focus:ring-rose-400"
+                />
+                <label 
+                  htmlFor={`question-${index}`}
+                  className="text-left text-gray-700 cursor-pointer"
+                >
+                  {question}
+                </label>
               </div>
-              <Button 
-                onClick={handleStart} 
-                size="lg" 
-                className="bg-rose-400 hover:bg-rose-500 text-white"
-              >
-                Start Test
-              </Button>
-            </motion.div>
-          )}
+            ))}
+          </div>
 
-          {quizState === "quiz" && (
-            <QuizCard
-              questions={questions}
-              selectedAnswers={selectedAnswers}
-              onCheckboxChange={handleCheckboxChange}
-              onCalculateScore={handleCalculateScore}
-              onClearCheckboxes={handleClearCheckboxes}
-            />
-          )}
-
-          {quizState === "result" && (
-            <ResultCard key="result" score={score} onRestart={handleStart} />
-          )}
-        </AnimatePresence>
+          <div className="mt-8 flex justify-center gap-4">
+            <Button 
+              onClick={handleCalculateScore}
+              className="bg-rose-400 hover:bg-rose-500 text-white"
+            >
+              Calculate Score
+            </Button>
+            <Button 
+              onClick={() => setSelectedAnswers(new Array(questions.length).fill(false))}
+              variant="outline"
+              className="border-rose-400 text-rose-400 hover:bg-rose-50"
+            >
+              Reset
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -39,11 +39,11 @@ export function ResultCard({ score, onRestart }: ResultCardProps) {
           <div className="text-8xl font-bold text-rose-400 mb-6">{score}</div>
           <p className="text-lg text-gray-600 mb-4">
             {score >= 90
-              ? "You're practically a saint! 😇"
+              ? "You're just an AG/AB (asian girl/boy) 😇"
               : score >= 70
               ? "Pretty innocent! 😊"
               : score >= 50
-              ? "You're living that ABG life! 💅"
+              ? "You're living that ABG/ABB life! 💅"
               : score >= 30
               ? "You're wild! 🔥"
               : "You're the ultimate ABG! 👑"}
