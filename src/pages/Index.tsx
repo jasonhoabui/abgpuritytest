@@ -7,140 +7,140 @@ import { motion, AnimatePresence } from "framer-motion";
 // Questions grouped by category
 const questions = [
   // Food & Drink
-  "Been to Seaside Bakery?",
-  "Been to Seaside Bakery past 12 AM?",
-  "Tried ham & cheese croissant or green Thai tea from Seaside Bakery?",
-  "Consumed Soju or Hennessy?",
-  "Consumed matcha?",
-  "Ate Korean BBQ?",
-  "Ate Buldak ramen before?",
-  "Been to Din Tai Fung?",
-  "Been to Tisane?",
-  "Drank boba twice in a day?",
+  "1. Been to Seaside Bakery?",
+  "2. Been to Seaside Bakery past 12 AM?",
+  "3. Tried ham & cheese croissant or green Thai tea from Seaside Bakery?",
+  "4. Consumed Soju or Hennessy?",
+  "5. Consumed matcha?",
+  "6. Ate Korean BBQ?",
+  "7. Ate Buldak ramen before?",
+  "8. Been to Din Tai Fung?",
+  "9. Been to Tisane?",
+  "10. Drank boba twice in a day?",
 
   // Social Media & Entertainment
-  "Watched a JasonTheWeen stream?",
-  "Watched content from Eric Ou, Kent Bui, Viet Trap, Rachie Love?",
-  "Been on a TikTok interview by an ABG/ABB influencer?",
-  "Gone viral on social media?",
-  "Instagram model?",
-  "Ever posted a thirst trap?",
+  "11. Watched a JasonTheWeen stream?",
+  "12. Watched content from Eric Ou, Kent Bui, Viet Trap, Rachie Love?",
+  "13. Been on a TikTok interview by an ABG/ABB influencer?",
+  "14. Gone viral on social media?",
+  "15. Instagram model?",
+  "16. Ever posted a thirst trap?",
 
   // Music
-  "Listened to Beabadoobee, Keshi, Bixby, Grentperez, or Wave to Earth?",
-  "Listened to any 88Rising artists?",
-  "Listened to Nueve Lio or Blxst?",
-  "Listened to Isoknock, Dabin, Slander, or Illenium?",
-  "Listen to Kpop?",
+  "17. Listened to Beabadoobee, Keshi, Bixby, Grentperez, or Wave to Earth?",
+  "18. Listened to any 88Rising artists?",
+  "19. Listened to Nueve Lio or Blxst?",
+  "20. Listened to Isoknock, Dabin, Slander, or Illenium?",
+  "21. Listen to Kpop?",
 
   // Gaming
-  "Played League of Legends?",
-  "Played Valorant?",
-  "Played TFT?",
-  "Played Osu?",
-  "Duo-queued with an ABG/ABB?",
+  "22. Played League of Legends?",
+  "23. Played Valorant?",
+  "24. Played TFT?",
+  "25. Played Osu?",
+  "26. Duo-queued with an ABG/ABB?",
 
   // Fashion & Accessories
-  "Worn Supreme?",
-  "Own Essentials or Stüssy clothing?",
-  "Own Van Cleef or Chrome Hearts?",
-  "Own a pair of cargo pants?",
-  "Own a red flannel?",
-  "Own a blank tee?",
-  "Own a blank hoodie?",
-  "Own a pair of Air Force 1's?",
-  "Own a pair of New Balance's?",
-  "Own a pair of Birkenstock's?",
-  "Own a pair of Gentle Monster glasses?",
-  "Own a Northface puffer?",
+  "27. Worn Supreme?",
+  "28. Own Essentials or Stüssy clothing?",
+  "29. Own Van Cleef or Chrome Hearts?",
+  "30. Own a pair of cargo pants?",
+  "31. Own a red flannel?",
+  "32. Own a blank tee?",
+  "33. Own a blank hoodie?",
+  "34. Own a pair of Air Force 1's?",
+  "35. Own a pair of New Balance's?",
+  "36. Own a pair of Birkenstock's?",
+  "37. Own a pair of Gentle Monster glasses?",
+  "38. Own a Northface puffer?",
 
   // Shopping
-  "Shopped at Miniso?",
-  "Shopped at KMart?",
-  "Own any Sanrio items?",
+  "39. Shopped at Miniso?",
+  "40. Shopped at KMart?",
+  "41. Own any Sanrio items?",
 
   // Appearance
-  "Had your hair permed or had highlights?",
-  "Dyed your hair blonde?",
-  "Dyed your hair an unnatural color?",
-  "Ears pierced?",
-  "Height starts with 5?",
-  "Own a small white dog (Bolognese)?",
-  "Have a tattoo?",
-  "Have a tattoo on your back?",
+  "42. Had your hair permed or had highlights?",
+  "43. Dyed your hair blonde?",
+  "44. Dyed your hair an unnatural color?",
+  "45. Ears pierced?",
+  "46. Height starts with 5?",
+  "47. Own a small white dog (Bolognese)?",
+  "48. Have a tattoo?",
+  "49. Have a tattoo on your back?",
 
   // Collectibles
-  "Own a Sonny angel?",
-  "Own a Smiski?",
-  "Own a Popmart?",
-  "Own a Uniqlo AIRism Tee?",
+  "50. Own a Sonny angel?",
+  "51. Own a Smiski?",
+  "52. Own a Popmart?",
+  "53. Own a Uniqlo AIRism Tee?",
 
   // Education & Location
-  "Study or studied at UCLA, UCI, or UCR?",
-  "From Orange County or San Jose?",
-  "From Southern California or the Bay?",
+  "54. Study or studied at UCLA, UCI, or UCR?",
+  "55. From Orange County or San Jose?",
+  "56. From Southern California or the Bay?",
 
   // Events & Activities
-  "Attended a K-pop concert?",
-  "Attended a rave?",
-  "Attended a rave with a rave-bae?",
-  "Hooked up with a rave-bae?",
+  "57. Attended a K-pop concert?",
+  "58. Attended a rave?",
+  "59. Attended a rave with a rave-bae?",
+  "60. Hooked up with a rave-bae?",
 
   // Travel
-  "Planned a trip to Japan?",
-  "Japan trip made it out of the GC?",
+  "61. Planned a trip to Japan?",
+  "62. Japan trip made it out of the GC?",
 
   // Relationships
-  "Been on dating apps (Hinge, Tinder, Bumble, etc.)?",
-  "Been in a situationship?",
-  "Had a crush on someone you met online?",
-  "Had a talking stage with someone you met online?",
-  "Created a shared playlist on Spotify with an ABB/ABG?",
-  "Online dated?",
-  "Cheated on your partner?",
-  "Had a sneaky link?",
-  "Been ghosted?",
+  "63. Been on dating apps (Hinge, Tinder, Bumble, etc.)?",
+  "64. Been in a situationship?",
+  "65. Had a crush on someone you met online?",
+  "66. Had a talking stage with someone you met online?",
+  "67. Created a shared playlist on Spotify with an ABB/ABG?",
+  "68. Online dated?",
+  "69. Cheated on your partner?",
+  "70. Had a sneaky link?",
+  "71. Been ghosted?",
 
   // Career & Education
-  "Worked at a boba store?",
-  "Business, Econ, Nursing major?",
+  "72. Worked at a boba store?",
+  "73. Business, Econ, Nursing major?",
 
   // Lifestyle
-  "Modded your car?",
-  "Obsessed with Gojo Satoru?",
-  "Been called an ABB/ABG?",
-  "Part of an Asian fraternity or sorority?",
-  "Know what PLUR stands for?",
-  "Given or received Kandi (rave bracelets)?",
-  "Given or received a shoulder ride?",
-  "Type in all lowercase?",
+  "74. Modded your car?",
+  "75. Obsessed with Gojo Satoru?",
+  "76. Been called an ABB/ABG?",
+  "77. Part of an Asian fraternity or sorority?",
+  "78. Know what PLUR stands for?",
+  "79. Given or received Kandi (rave bracelets)?",
+  "80. Given or received a shoulder ride?",
+  "81. Type in all lowercase?",
 
   // Places
-  "Been to the OC Fair?",
-  "Been to 626 Night Market?",
-  "Been to Little Tokyo?",
-  "Been to Irvine Spectrum?",
-  "Been to Signal Hill?",
-  "Been to Top of the World?",
-  "Been to Asian Garden Mall (Phước Lộc Thọ)?",
-  "Been to a streetwear pop-up shop?",
+  "82. Been to the OC Fair?",
+  "83. Been to 626 Night Market?",
+  "84. Been to Little Tokyo?",
+  "85. Been to Irvine Spectrum?",
+  "86. Been to Signal Hill?",
+  "87. Been to Top of the World?",
+  "88. Been to Asian Garden Mall (Phước Lộc Thọ)?",
+  "89. Been to a streetwear pop-up shop?",
 
   // Activities & Hobbies
-  "Workout?",
-  "Play basketball or volleyball?",
+  "90. Workout?",
+  "91. Play basketball or volleyball?",
 
   // Personal
-  "Named Tiffany, Vivian, Emily, Jessica, Jennifer, Kevin?",
-  "Vaped?",
-  "Had an anime phase?",
-  "Had a hypebeast phase?",
+  "92. Named Tiffany, Vivian, Emily, Jessica, Jennifer, Kevin?",
+  "93. Vaped?",
+  "94. Had an anime phase?",
+  "95. Had a hypebeast phase?",
 
   // K-Culture
-  "Watched Squid Game?",
-  "Likes Chaewon?",
-  "Have a flag of any K-pop idol?",
-  "Have a Chaewon flag?",
-  "Likes Wonyoung?"
+  "96. Watched Squid Game?",
+  "97. Likes Chaewon?",
+  "98. Have a flag of any K-pop idol?",
+  "99. Have a Chaewon flag?",
+  "100. Likes Wonyoung?"
 ];
 
 type QuizState = "start" | "quiz" | "result";
@@ -184,10 +184,24 @@ const Index = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center"
             >
-              <h1 className="text-4xl font-bold mb-6 text-gray-900">ABG Purity Test</h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Click the boxes that apply to you. Your score will appear at the end. Answer honestly—no one can see your answers! 💅✨
-              </p>
+              <img 
+                src="/lovable-uploads/388e7686-2d70-447b-89c8-f6e176363f6b.png" 
+                alt="Asian Baby Purity Test Header" 
+                className="mx-auto mb-8 max-w-2xl w-full"
+              />
+              <div className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto space-y-4">
+                <p>
+                  The ABG-themed Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
+                  Inspired by the classic Rice Purity Test, this version adds an ABG twist, making it perfect for 
+                  group laughs and icebreakers.
+                </p>
+                <p>
+                  Reminder: This is just for fun! Checking off every item isn't a goal—take it easy and enjoy the ride.
+                </p>
+                <p>
+                  Click on each item you've experienced.
+                </p>
+              </div>
               <Button 
                 onClick={handleStart} 
                 size="lg" 
