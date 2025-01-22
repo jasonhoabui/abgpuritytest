@@ -28,17 +28,17 @@ export function QuizCard({ question, questionNumber, totalQuestions, onAnswer }:
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <Card className="w-full max-w-lg mx-auto">
+      <Card className="w-full max-w-2xl mx-auto bg-white border-gray-200">
         <CardHeader>
-          <CardTitle className="text-center text-2xl font-bold">
+          <CardTitle className="text-center text-xl font-medium text-gray-900">
             Question {questionNumber} of {totalQuestions}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-center text-lg mb-6">{question}</p>
-          <div className="w-full bg-gray-200 rounded-full h-2.5">
+          <p className="text-center text-lg mb-6 text-gray-700">{question}</p>
+          <div className="w-full bg-gray-100 rounded-full h-2">
             <div
-              className="bg-primary rounded-full h-2.5 transition-all duration-300"
+              className="bg-rose-400 rounded-full h-2 transition-all duration-300"
               style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
             ></div>
           </div>
@@ -48,7 +48,7 @@ export function QuizCard({ question, questionNumber, totalQuestions, onAnswer }:
             variant="outline"
             onClick={() => handleAnswer(true)}
             disabled={isAnswering}
-            className="w-32"
+            className="w-32 border-gray-300 hover:bg-gray-50"
           >
             Yes
           </Button>
@@ -56,7 +56,7 @@ export function QuizCard({ question, questionNumber, totalQuestions, onAnswer }:
             variant="outline"
             onClick={() => handleAnswer(false)}
             disabled={isAnswering}
-            className="w-32"
+            className="w-32 border-gray-300 hover:bg-gray-50"
           >
             No
           </Button>
