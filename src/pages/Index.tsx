@@ -217,6 +217,9 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <div className="text-center w-full">
+        <p className="text-xs text-gray-500 mt-8">©{new Date().getFullYear()} by jason bui</p>
+      </div>
     </div>
   );
 }
