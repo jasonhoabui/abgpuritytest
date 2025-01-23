@@ -169,11 +169,12 @@ const Index = () => {
           />
           <div className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto space-y-4">
             <p>
-              The ABG-themed Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
+              The Asian Baby Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
               Inspired by the classic Rice Purity Test, this version adds an ABG twist, making it perfect for 
               group laughs and icebreakers.
             </p>
-            <p>
+            <strong>Caution: This is not a bucket list. Completion of all items on this test will likely result in brainrot.
+            </strong>            <p>
               Click on each item you've experienced.
             </p>
           </div>
