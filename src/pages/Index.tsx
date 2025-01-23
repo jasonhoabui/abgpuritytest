@@ -21,7 +21,7 @@ const questions = [
   "12. Watched content from Eric Ou, Kent Bui, Viet Trap, Rachie Love?",
   "13. Been on a TikTok interview by an ABG/ABB influencer?",
   "14. Gone viral on social media?",
-  "15. Instagram model?",
+  "15. Interacted with an Instagram model?",
   "16. Ever posted a thirst trap?",
 
   // Music
@@ -94,7 +94,7 @@ const questions = [
   "65. Had a crush on someone you met online?",
   "66. Had a talking stage with someone you met online?",
   "67. Created a shared playlist on Spotify with an ABB/ABG?",
-  "68. Online dated?",
+  "68. Online dated? (Discord, Instagram, etc.)",
   "69. Cheated on your partner?",
   "70. Had a sneaky link?",
   "71. Been ghosted?",
@@ -169,9 +169,8 @@ const Index = () => {
           />
           <div className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto space-y-4">
             <p>
-              The Asian Baby Purity Test serves as a lighthearted way to bond and reflect on shared experiences. 
-              Inspired by the classic Rice Purity Test, this version adds an ABG twist, making it perfect for 
-              group laughs and icebreakers.
+            <em>The Asian Baby Purity Test has historically served as a segue from everyday life to true ABG/ABB culture. 
+            It is a voluntary opportunity for ABGs and ABBs to bond, share laughs, and track the evolution of their cultured experiences.</em>
             </p>
             <strong>Caution: This is not a bucket list. Completion of all items on this test will likely result in brainrot.
             </strong>            <p>
